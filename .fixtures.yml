@@ -1,0 +1,6 @@
+fixtures:
+  repositories:
+    stdlib: 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
+    tomcat: 'https://github.com/puppetlabs/puppetlabs-tomcat.git'
+  symlinks:
+    secure_tomcat: "#{source_dir}"

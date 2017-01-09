@@ -1,20 +1,13 @@
-# == Class secure_tomcat::params
+# Class: tomcat::params
 #
-# This class is meant to be called from secure_tomcat.
-# It sets variables according to platform.
+# This class manages Tomcat parameters.
 #
-class secure_tomcat::params {
-  case $::osfamily {
-    'Debian': {
-      $package_name = 'secure_tomcat'
-      $service_name = 'secure_tomcat'
-    }
-    'RedHat', 'Amazon': {
-      $package_name = 'secure_tomcat'
-      $service_name = 'secure_tomcat'
-    }
-    default: {
-      fail("${::operatingsystem} not supported")
-    }
-  }
+# Parameters:
+# - $catalina_home is the root of the Tomcat installation.
+# - The $user Tomcat runs as.
+# - The $group Tomcat runs as.
+class tomcat::params {
+  $catalina_home = '/opt/apache-tomcat'
+  $user          = 'tomcat'
+  $group         = 'tomcat'
 }

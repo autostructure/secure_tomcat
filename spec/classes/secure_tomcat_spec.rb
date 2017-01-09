@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'secure_tomcat::install' do
+describe 'secure_tomcat' do
   context 'supported operating systems' do
     on_supported_os.each do |os, facts|
       context "on #{os}" do
@@ -10,17 +10,19 @@ describe 'secure_tomcat::install' do
           )
         end
 
-        let(:title) { '/opt/tomcat' }
-
         let(:params) {
           {
-            user:       'tomcat_admin',
-            group:      'tomcat',
-            source_url: 'https://www-us.apache.org/dist/tomcat/tomcat-7/v7.0.73/bin/apache-tomcat-7.0.73.tar.gz'
+            installs: {
+              '/opt/tomcat' => {
+                'user'       => 'tomcat_admin',
+                'group'      => 'tomcat',
+                'source_url' => 'https://www-us.apache.org/dist/tomcat/tomcat-7/v7.0.73/bin/apache-tomcat-7.0.73.tar.gz',
+              }
+            }
           }
         }
 
-        context "secure_tomcat::install class without any parameters" do
+        context "secure_tomcat class without any parameters" do
           it { is_expected.to compile.with_all_deps }
 
           # it { is_expected.to contain_class('secure_tomcat::params') }

@@ -82,12 +82,10 @@ class secure_tomcat::harden_installs {
     # 4.1 Remove extraneous files and directories
     exec { "/bin/chmod g-w,o-rwx ${catalina_home}":
       refreshonly => true,
-      subscribe   => ["File[${catalina_home}]"],
     }
 
     exec { "/bin/chown ${params['user']}:${params['group']} ${catalina_home}":
       refreshonly => true,
-      subscribe   => ["File[${catalina_home}]"],
     }
 
     # 4.3 Restrict access to Tomcat configuration directory

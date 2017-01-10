@@ -27,12 +27,38 @@
 #
 class secure_tomcat (
   Hash $installs,
-  Optional[Hash] $instances = undef,
+  Hash $instances = {},
+  Hash $wars = {},
+  Hash $config_properties_properties = {},
+  Hash $config_servers = {},
+  Hash $config_server_connectors = {},
+  Hash $config_server_contexts = {},
+  Hash $config_server_engines = {},
+  Hash $config_server_globalnamingresources = {},
+  Hash $config_server_hosts = {},
+  Hash $config_server_listeners = {},
+  Hash $config_server_realms = {},
+  Hash $config_server_services = {},
+  Hash $config_server_tomcat_users = {},
+  Hash $config_server_valves = {},
+  Hash $config_contexts = {},
+  Hash $config_context_environments = {},
+  Hash $config_context_managers = {},
+  Hash $config_context_resources = {},
+  Hash $config_context_resourcelinks = {},
+
   Boolean $use_manager_application = false,
   String $checked_os_users = 'root',
   String $minimum_umask = '0007'
 
   ) {
-  class {'::secure_tomcat::run_installs': } ->
-  class {'::secure_tomcat::harden_installs': }
+  class {'::secure_tomcat::run_installs': } ~>
+  class {'::secure_tomcat::harden_installs': } ->
+  class {'::secure_tomcat::run_instances': } ->
+  class {'::secure_tomcat::harden_instances': } ->
+  class {'::secure_tomcat::run_wars': } ->
+  class {'::secure_tomcat::deploy_wars': } ->
+  class {'::secure_tomcat::configure_wars': } ->
+  class {'::secure_tomcat::harden_wars': } ->
+  class {'::secure_tomcat::configure': }
 }

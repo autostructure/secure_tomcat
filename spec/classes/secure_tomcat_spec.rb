@@ -18,6 +18,12 @@ describe 'secure_tomcat' do
                 'group'      => 'tomcat',
                 'source_url' => 'https://www-us.apache.org/dist/tomcat/tomcat-7/v7.0.73/bin/apache-tomcat-7.0.73.tar.gz',
               }
+            },
+            wars: {
+              'hello.war' => {
+                'catalina_base' => '/opt/tomcat',
+                'war_source' => 'https://glassfish.dev.java.net/downloads/quickstart/hello.war',
+              }
             }
           }
         }

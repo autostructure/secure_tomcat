@@ -1,6 +1,6 @@
 {
   "name": "autostructure-secure_tomcat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Bryan Belanger",
   "summary": "Configures a tomcat instance that meets CSI hardening standards.",
   "license": "Apache-2.0",
@@ -17,7 +17,7 @@
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-	"6",
+        "6",
         "7"
       ]
     }

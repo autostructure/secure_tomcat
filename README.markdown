@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/autostructure/secure_tomcat.svg?branch=master)](https://travis-ci.org/autostructure/secure_tomcat)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/autostructure/secure_tomcat.svg)](https://forge.puppetlabs.com/autostructure/secure_tomcat)
+[![Puppet Forge](https://img.shields.io/puppetforge/f/autostructure/secure_tomcat.svg)](https://forge.puppetlabs.com/autostructure/secure_tomcat)
+
 #### Table of Contents
 
 1. [Overview](#overview)

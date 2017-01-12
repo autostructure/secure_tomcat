@@ -12,6 +12,8 @@ group :test do
   gem 'simplecov'
   gem 'simplecov-console'
 
+  gem "puppet-blacksmith"
+
   gem "puppet-lint-absolute_classname-check"
   gem "puppet-lint-classes_and_types_beginning_with_digits-check"
   gem "puppet-lint-leading_zero-check"
@@ -23,7 +25,6 @@ end
 
 group :development do
   gem "guard-rake"
-  gem "puppet-blacksmith"
   gem "travis"
   gem "travis-lint"
 end

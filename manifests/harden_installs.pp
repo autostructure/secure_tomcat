@@ -189,7 +189,7 @@ class secure_tomcat::harden_installs {
       ensure => present,
       path   => "${catalina_home}/bin/catalina.sh",
       line   => 'JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
-      match  => '^JAVA_OPTS="\$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
+      match  => '^#JAVA_OPTS="\$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
     }
 
     ::tomcat::config::server::listener {'org.apache.catalina.security.SecurityListener':

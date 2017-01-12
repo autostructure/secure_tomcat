@@ -7,14 +7,8 @@ class secure_tomcat::harden_installs {
       lens    => 'Xml.lns',
       context => "/files/${catalina_home}/conf/web.xml/web-app",
       changes => [
-        #'set web-app/error-page',
         'set error-page/exception-type/#text java.lang.Throwable',
         'set error-page/location/#text /error.jsp',
-        #'set web-app/exception-type',
-        #'set web-app/location',
-        #"set spec[user = 'joe']/host_group/host ALL",
-        #"set spec[user = 'joe']/host_group/command ALL",
-        #"set spec[user = 'joe']/host_group/command/runas_user ALL",
       ],
     }
 
@@ -191,6 +185,13 @@ class secure_tomcat::harden_installs {
     }
 
     # 10.19 Setting Security Lifecycle Listener
+    file_line { 'SecurityListener_umask':
+      ensure => present,
+      path   => "${catalina_home}/bin/catalina.sh",
+      line   => 'JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
+      match  => '^JAVA_OPTS="\$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
+    }
+
     ::tomcat::config::server::listener {'org.apache.catalina.security.SecurityListener':
       catalina_base         => $catalina_home,
       listener_ensure       => present,

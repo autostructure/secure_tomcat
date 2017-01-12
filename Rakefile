@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'puppetlabs_spec_helper/rake_tasks'
+require 'puppet_blacksmith/rake_tasks'
 require 'puppet/version'
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppet-syntax/tasks/puppet-syntax'

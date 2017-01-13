@@ -185,6 +185,13 @@ class secure_tomcat::harden_installs {
     }
 
     # 10.19 Setting Security Lifecycle Listener
+    file_line { 'tomcat_umask':
+      ensure => present,
+      path   => "${catalina_home}/bin/catalina.sh",
+      line   => 'umask 0007',
+      after  => '#!/bin/sh',
+    }
+
     file_line { 'SecurityListener_umask':
       ensure => present,
       path   => "${catalina_home}/bin/catalina.sh",

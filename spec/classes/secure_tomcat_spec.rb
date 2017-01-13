@@ -6,7 +6,8 @@ describe 'secure_tomcat' do
       context "on #{os}" do
         let(:facts) do
           facts.merge(
-            staging_http_get: 'curl'
+            staging_http_get: 'curl',
+            augeasversion: '1.7.0'
           )
         end
 

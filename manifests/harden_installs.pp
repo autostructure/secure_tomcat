@@ -207,5 +207,13 @@ class secure_tomcat::harden_installs {
         minimumUmask   => $::secure_tomcat::minimum_umask,
       },
     }
+
+    # 10.6 Enable strict servlet Compliance
+    file_line { 'strict_servlet_ompliance':
+      ensure => present,
+      path   => "${catalina_home}/bin/catalina.sh",
+      line   => 'JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.STRICT_SERVLET_COMPLIANCE=true"',
+      after  => '^# ----- Execute.+',
+    }
   }
 }

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="junit.xsl"?>
+<testsuites>
+  <meta_test_info page_active="no-links" link_url=""/>
+  <testsuite name="tests" tests="1" errors="1" failures="0" skipped="0" pending="0" total="1" time="0.004973">
+    <properties>
+      <property name="project" value="Beaker"/>
+      <property name="department" value="unknown"/>
+      <property name="created_by" value="bryanbelanger"/>
+      <property name="host_tags" value="{}"/>
+      <property name="openstack_api_key" value=""/>
+      <property name="openstack_username" value=""/>
+      <property name="openstack_auth_url" value="/tokens"/>
+      <property name="openstack_tenant" value=""/>
+      <property name="openstack_keyname" value=""/>
+      <property name="openstack_network" value=""/>
+      <property name="openstack_region" value=""/>
+      <property name="jenkins_build_url" value=""/>
+      <property name="validate" value="true"/>
+      <property name="configure" value="true"/>
+      <property name="log_level" value="info"/>
+      <property name="trace_limit" value="10"/>
+      <property name="master-start-curl-retries" value="120"/>
+      <property name="masterless" value="false"/>
+      <property name="options_file" value=""/>
+      <property name="type" value="pe"/>
+      <property name="provision" value="true"/>
+      <property name="preserve_hosts" value="onfail"/>
+      <property name="root_keys" value="false"/>
+      <property name="quiet" value="false"/>
+      <property name="project_root" value="/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker"/>
+      <property name="xml_dir" value="junit"/>
+      <property name="xml_file" value="beaker_junit.xml"/>
+      <property name="xml_time" value="beaker_times.xml"/>
+      <property name="xml_time_enabled" value="false"/>
+      <property name="xml_stylesheet" value="junit.xsl"/>
+      <property name="default_log_prefix" value="beaker_logs"/>
+      <property name="log_dir" value="log"/>
+      <property name="log_sut_event" value="sut.log"/>
+      <property name="color" value="true"/>
+      <property name="dry_run" value="false"/>
+      <property name="tag_includes" value="[]"/>
+      <property name="tag_excludes" value="[]"/>
+      <property name="timeout" value="900"/>
+      <property name="fail_mode" value="slow"/>
+      <property name="accept_all_exit_codes" value="false"/>
+      <property name="timesync" value="false"/>
+      <property name="disable_iptables" value="false"/>
+      <property name="set_env" value="true"/>
+      <property name="disable_updates" value="true"/>
+      <property name="repo_proxy" value="false"/>
+      <property name="package_proxy" value="false"/>
+      <property name="add_el_extras" value="false"/>
+      <property name="epel_url" value="http://dl.fedoraproject.org/pub/epel"/>
+      <property name="consoleport" value="443"/>
+      <property name="pe_dir" value="/opt/enterprise/dists"/>
+      <property name="pe_version_file" value="LATEST"/>
+      <property name="pe_version_file_win" value="LATEST-win"/>
+      <property name="host_env" value="{}"/>
+      <property name="host_name_prefix" value=""/>
+      <property name="ssh_env_file" value="~/.ssh/environment"/>
+      <property name="profile_d_env_file" value="/etc/profile.d/beaker_env.sh"/>
+      <property name="dot_fog" value="/Users/bryanbelanger/.fog"/>
+      <property name="ec2_yaml" value="config/image_templates/ec2.yaml"/>
+      <property name="help" value="false"/>
+      <property name="collect_perf_data" value="none"/>
+      <property name="puppetdb_port_ssl" value="8081"/>
+      <property name="puppetdb_port_nonssl" value="8080"/>
+      <property name="puppetserver_port" value="8140"/>
+      <property name="nodeclassifier_port" value="4433"/>
+      <property name="cache_files_locally" value="false"/>
+      <property name="aws_keyname_modifier" value="9906037780"/>
+      <property name="run_in_parallel" value="[]"/>
+      <property name="ssh" value="{:config=&gt;false, :paranoid=&gt;false, :auth_methods=&gt;[&quot;publickey&quot;], :port=&gt;22, :forward_agent=&gt;true, :keys=&gt;[&quot;/Users/bryanbelanger/.ssh/id_rsa&quot;], :user_known_hosts_file=&gt;&quot;/Users/bryanbelanger/.ssh/known_hosts&quot;, :keepalive=&gt;true}"/>
+      <property name="tests" value="[&quot;class2_spec.rb&quot;]"/>
+      <property name="command_line" value="/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/bin/beaker --preserve-hosts onfail --test class2_spec.rb"/>
+      <property name="HOSTS" value="{}"/>
+      <property name="home" value="/Users/bryanbelanger"/>
+      <property name="helper" value="[]"/>
+      <property name="load_path" value="[]"/>
+      <property name="pre_suite" value="[]"/>
+      <property name="post_suite" value="[]"/>
+      <property name="install" value="[]"/>
+      <property name="pre_cleanup" value="[]"/>
+      <property name="modules" value="[]"/>
+      <property name="logger" value="#&lt;Beaker::Logger:0x007f8ad1566540&gt;"/>
+      <property name="timestamp" value="2017-01-14 07:51:26 -0500"/>
+      <property name="beaker_version" value="3.7.0"/>
+      <property name="log_prefix" value="beaker_logs"/>
+      <property name="xml_dated_dir" value="junit/beaker_logs/2017-01-14_07_51_26"/>
+      <property name="log_dated_dir" value="log/beaker_logs/2017-01-14_07_51_26"/>
+      <property name="logger_sut" value="#&lt;Beaker::Logger:0x007f8ad14f79d8&gt;"/>
+    </properties>
+    <testcase classname="." name="class2_spec.rb" time="0.004448">
+      <failure type="error" message="cannot load such file -- spec_helper_acceptance"><![CDATA[class2_spec.rb:1:in `require'\nclass2_spec.rb:1:in `block in run_test'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker/test_case.rb:133:in `eval'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker/test_case.rb:133:in `block in run_test'\n/Users/bryanbelanger/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker/test_case.rb:130:in `run_test'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker/test_suite.rb:325:in `block in run'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker/test_suite.rb:322:in `each'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker/test_suite.rb:322:in `run'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker/test_suite.rb:371:in `run_and_raise_on_failure'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker/cli.rb:181:in `run_suite'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker/cli.rb:107:in `execute!'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/bin/beaker:6:in `<top (required)>'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/bin/beaker:22:in `load'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/bin/beaker:22:in `<main>'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'\n/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>']]></failure>
+      <system-out><![CDATA[LoadError: cannot load such file -- spec_helper_acceptance
+/Users/bryanbelanger/a-git/secure_tomcat/spec/acceptance/class2_spec.rb:1
+/Users/bryanbelanger/a-git/secure_tomcat/spec/acceptance/class2_spec.rb:1
+/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/bin/beaker:6
+/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15
+/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15
+Begin teardown
+End teardown
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

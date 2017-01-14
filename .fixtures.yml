@@ -2,6 +2,7 @@ fixtures:
   repositories:
     staging: 'https://github.com/voxpupuli/puppet-staging.git'
     stdlib:  'https://github.com/puppetlabs/puppetlabs-stdlib.git'
+    concat:  'https://github.com/puppetlabs/puppetlabs-concat.git'
     tomcat:  'https://github.com/puppetlabs/puppetlabs-tomcat.git'
     java:    'https://github.com/puppetlabs/puppetlabs-java.git'
   symlinks:

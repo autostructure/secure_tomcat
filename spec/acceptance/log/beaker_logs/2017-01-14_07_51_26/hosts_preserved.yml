@@ -1,0 +1,222 @@
+--- !ruby/hash:Beaker::Options::OptionsHash
+:project: Beaker
+:department: unknown
+:created_by: bryanbelanger
+:host_tags: !ruby/hash:Beaker::Options::OptionsHash {}
+:openstack_api_key: 
+:openstack_username: 
+:openstack_auth_url: "/tokens"
+:openstack_tenant: 
+:openstack_keyname: 
+:openstack_network: 
+:openstack_region: 
+:jenkins_build_url: 
+:validate: true
+:configure: true
+:log_level: info
+:trace_limit: 10
+:master-start-curl-retries: 120
+:masterless: false
+:options_file: 
+:type: pe
+:provision: true
+:preserve_hosts: onfail
+:root_keys: false
+:quiet: false
+:project_root: "/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker"
+:xml_dir: junit
+:xml_file: beaker_junit.xml
+:xml_time: beaker_times.xml
+:xml_time_enabled: false
+:xml_stylesheet: junit.xsl
+:default_log_prefix: beaker_logs
+:log_dir: log
+:log_sut_event: sut.log
+:color: true
+:dry_run: false
+:tag_includes: &2 []
+:tag_excludes: &3 []
+:timeout: 900
+:fail_mode: slow
+:accept_all_exit_codes: false
+:timesync: false
+:disable_iptables: false
+:set_env: true
+:disable_updates: true
+:repo_proxy: false
+:package_proxy: false
+:add_el_extras: false
+:epel_url: http://dl.fedoraproject.org/pub/epel
+:consoleport: 443
+:pe_dir: "/opt/enterprise/dists"
+:pe_version_file: LATEST
+:pe_version_file_win: LATEST-win
+:host_env: !ruby/hash:Beaker::Options::OptionsHash {}
+:host_name_prefix: 
+:ssh_env_file: "~/.ssh/environment"
+:profile_d_env_file: "/etc/profile.d/beaker_env.sh"
+:dot_fog: "/Users/bryanbelanger/.fog"
+:ec2_yaml: config/image_templates/ec2.yaml
+:help: false
+:collect_perf_data: none
+:puppetdb_port_ssl: 8081
+:puppetdb_port_nonssl: 8080
+:puppetserver_port: 8140
+:nodeclassifier_port: 4433
+:cache_files_locally: false
+:aws_keyname_modifier: '9906037780'
+:run_in_parallel: &4 []
+:ssh: !ruby/hash:Beaker::Options::OptionsHash
+  :config: false
+  :paranoid: false
+  :auth_methods: &5
+  - publickey
+  :port: 22
+  :forward_agent: true
+  :keys: &6
+  - "/Users/bryanbelanger/.ssh/id_rsa"
+  :user_known_hosts_file: "/Users/bryanbelanger/.ssh/known_hosts"
+  :keepalive: true
+:tests: &7 []
+:command_line: "/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/bin/beaker --preserve-hosts
+  onfail --test class2_spec.rb"
+:HOSTS: {}
+:home: "/Users/bryanbelanger"
+:helper: &8 []
+:load_path: &9 []
+:pre_suite: &10 []
+:post_suite: &11 []
+:install: &12 []
+:pre_cleanup: &13 []
+:modules: &14 []
+:logger: !ruby/object:Beaker::Logger
+  color: true
+  sublog: &1 !ruby/object:StringIO {}
+  log_level: :info
+  last_result: 
+  line_prefix: ''
+  destinations:
+  - !ruby/object:IO {}
+  - *1
+  log_colors:
+    :error: "\e[00;31m"
+    :warn: "\e[01;31m"
+    :success: "\e[00;35m"
+    :notify: "\e[00;34m"
+    :info: "\e[00;32m"
+    :debug: "\e[00;37m"
+    :trace: "\e[01;33m"
+    :perf: "\e[01;35m"
+    :host: "\e[00;33m"
+:timestamp: 2017-01-14 07:51:26.888937000 -05:00
+:beaker_version: 3.7.0
+:log_prefix: beaker_logs
+:xml_dated_dir: junit/beaker_logs/2017-01-14_07_51_26
+:log_dated_dir: log/beaker_logs/2017-01-14_07_51_26
+:logger_sut: !ruby/object:Beaker::Logger
+  color: 
+  sublog: 
+  log_level: :verbose
+  last_result: 
+  line_prefix: ''
+  destinations:
+  - !ruby/object:File {}
+  log_colors:
+    :error: "\e[00;31m"
+    :warn: "\e[01;31m"
+    :success: "\e[00;35m"
+    :notify: "\e[00;34m"
+    :info: "\e[00;32m"
+    :debug: "\e[00;37m"
+    :trace: "\e[01;33m"
+    :perf: "\e[01;35m"
+    :host: "\e[00;33m"
+:CONFIG: !ruby/hash:Beaker::Options::OptionsHash
+  :project: Beaker
+  :department: unknown
+  :created_by: bryanbelanger
+  :host_tags: !ruby/hash:Beaker::Options::OptionsHash {}
+  :openstack_api_key: 
+  :openstack_username: 
+  :openstack_auth_url: "/tokens"
+  :openstack_tenant: 
+  :openstack_keyname: 
+  :openstack_network: 
+  :openstack_region: 
+  :jenkins_build_url: 
+  :validate: true
+  :configure: true
+  :log_level: info
+  :trace_limit: 10
+  :master-start-curl-retries: 120
+  :masterless: false
+  :options_file: 
+  :type: pe
+  :provision: false
+  :preserve_hosts: onfail
+  :root_keys: false
+  :quiet: false
+  :project_root: "/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/gems/beaker-3.7.0/lib/beaker"
+  :xml_dir: junit
+  :xml_file: beaker_junit.xml
+  :xml_time: beaker_times.xml
+  :xml_time_enabled: false
+  :xml_stylesheet: junit.xsl
+  :log_dir: log
+  :log_sut_event: sut.log
+  :color: true
+  :dry_run: false
+  :tag_includes: *2
+  :tag_excludes: *3
+  :timeout: 900
+  :fail_mode: slow
+  :accept_all_exit_codes: false
+  :timesync: false
+  :disable_iptables: false
+  :set_env: true
+  :disable_updates: true
+  :repo_proxy: false
+  :package_proxy: false
+  :add_el_extras: false
+  :epel_url: http://dl.fedoraproject.org/pub/epel
+  :consoleport: 443
+  :pe_dir: "/opt/enterprise/dists"
+  :pe_version_file: LATEST
+  :pe_version_file_win: LATEST-win
+  :host_env: !ruby/hash:Beaker::Options::OptionsHash {}
+  :host_name_prefix: 
+  :ssh_env_file: "~/.ssh/environment"
+  :profile_d_env_file: "/etc/profile.d/beaker_env.sh"
+  :dot_fog: "/Users/bryanbelanger/.fog"
+  :ec2_yaml: config/image_templates/ec2.yaml
+  :help: false
+  :collect_perf_data: none
+  :puppetdb_port_ssl: 8081
+  :puppetdb_port_nonssl: 8080
+  :puppetserver_port: 8140
+  :nodeclassifier_port: 4433
+  :cache_files_locally: false
+  :aws_keyname_modifier: '9906037780'
+  :run_in_parallel: *4
+  :ssh: !ruby/hash:Beaker::Options::OptionsHash
+    :config: false
+    :paranoid: false
+    :auth_methods: *5
+    :port: 22
+    :forward_agent: true
+    :keys: *6
+    :user_known_hosts_file: "/Users/bryanbelanger/.ssh/known_hosts"
+    :keepalive: true
+  :tests: *7
+  :command_line: "/Users/bryanbelanger/.rvm/gems/ruby-2.3.3/bin/beaker --preserve-hosts
+    onfail --test class2_spec.rb"
+  :home: "/Users/bryanbelanger"
+  :helper: *8
+  :load_path: *9
+  :pre_suite: *10
+  :post_suite: *11
+  :install: *12
+  :pre_cleanup: *13
+  :modules: *14
+  :beaker_version: 3.7.0
+  :CONFIG: !ruby/hash:Beaker::Options::OptionsHash {}

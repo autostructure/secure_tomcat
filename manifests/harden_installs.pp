@@ -2,7 +2,7 @@
 class secure_tomcat::harden_installs {
   $::secure_tomcat::installs.each |$catalina_home, $params| {
 
-    augeas { 'error-page':
+    augeas { "${catalina_home}-error-page":
       incl    => "${catalina_home}/conf/web.xml",
       lens    => 'Xml.lns',
       context => "/files/${catalina_home}/conf/web.xml/web-app",
@@ -179,27 +179,29 @@ class secure_tomcat::harden_installs {
     }
 
     # 10.18 Enable memory leak listener
-    ::tomcat::config::server::listener {'org.apache.catalina.core.JreMemoryLeakPreventionListener':
+    ::tomcat::config::server::listener {"${catalina_home}-org.apache.catalina.core.JreMemoryLeakPreventionListener":
+      class_name      => 'org.apache.catalina.core.JreMemoryLeakPreventionListener',
       catalina_base   => $catalina_home,
       listener_ensure => present,
     }
 
     # 10.19 Setting Security Lifecycle Listener
-    file_line { 'tomcat_umask':
+    file_line { "${catalina_home}-tomcat_umask":
       ensure => present,
       path   => "${catalina_home}/bin/catalina.sh",
       line   => 'umask 0007',
       after  => '#!/bin/sh',
     }
 
-    file_line { 'SecurityListener_umask':
+    file_line { "${catalina_home}-SecurityListener_umask":
       ensure => present,
       path   => "${catalina_home}/bin/catalina.sh",
       line   => 'JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
       match  => '^#JAVA_OPTS="\$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
     }
 
-    ::tomcat::config::server::listener {'org.apache.catalina.security.SecurityListener':
+    ::tomcat::config::server::listener {"${catalina_home}-org.apache.catalina.security.SecurityListener":
+      class_name            => 'org.apache.catalina.security.SecurityListener',
       catalina_base         => $catalina_home,
       listener_ensure       => present,
       additional_attributes => {
@@ -209,7 +211,7 @@ class secure_tomcat::harden_installs {
     }
 
     # 10.6 Enable strict servlet Compliance
-    file_line { 'strict_servlet_ompliance':
+    file_line { "${catalina_home}-strict_servlet_compliance":
       ensure => present,
       path   => "${catalina_home}/bin/catalina.sh",
       line   => 'JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.STRICT_SERVLET_COMPLIANCE=true"',

@@ -3,10 +3,6 @@ class secure_tomcat::deploy_wars {
   $::secure_tomcat::wars.each |$name, $params| {
     $array_war = split($name, '[.]')
 
-    file {"${params['catalina_base']}/webapps/${array_war[0]}":
-      ensure => directory,
-    }
-
     ::staging::extract { $name:
       target  => "${params['catalina_base']}/webapps/${array_war[0]}",
       source  => "${params['catalina_base']}/webapps/${name}",

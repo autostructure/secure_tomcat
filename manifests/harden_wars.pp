@@ -12,6 +12,7 @@ class secure_tomcat::harden_wars {
       context => "/files/${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/web.xml/",
       changes => [
         'set web-app/#attribute/metadata-complete true',
+        'set web-app/#attribute/version 3.0',
       ],
     }
 

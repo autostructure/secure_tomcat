@@ -20,7 +20,7 @@ describe 'secure_tomcat::install' do
           }
         }
 
-        context "secure_tomcat::install class without any parameters" do
+        context "secure_tomcat::install class with user, group and source_url params" do
           it { is_expected.to compile.with_all_deps }
 
           # it { is_expected.to contain_class('secure_tomcat::params') }

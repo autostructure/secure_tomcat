@@ -29,7 +29,7 @@ describe 'secure_tomcat' do
           }
         }
 
-        context "secure_tomcat class without any parameters" do
+        context "secure_tomcat class with an install and war" do
           it { is_expected.to compile.with_all_deps }
         end
       end
@@ -114,7 +114,7 @@ describe 'secure_tomcat' do
           }
         }
 
-        context "secure_tomcat class without any parameters" do
+        context "secure_tomcat class with an lots of install and no wars" do
           it { is_expected.to compile.with_all_deps }
         end
       end

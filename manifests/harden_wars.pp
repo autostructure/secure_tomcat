@@ -1,5 +1,7 @@
 # Runs any tomcat install
 class secure_tomcat::harden_wars {
+  include ::tomcat
+
   $::secure_tomcat::wars.each |$name, $params| {
     $array_war = split($name, '[.]')
 
@@ -76,6 +78,24 @@ class secure_tomcat::harden_wars {
       ensure => present,
       path   => "${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/classes/logging.properties",
       line   => "${name}.org.apache.juli.FileHandler.prefix=${name}",
+    }
+
+    # Find user for install or instance
+    $user_install = getparam(Tomcat::Install[$params['catalina_base']], 'user')
+    $user_base_tomcat = $::tomcat::user
+
+    $group_install = getparam(Tomcat::Install[$params['catalina_base']], 'group')
+    $group_base_tomcat = $::tomcat::group
+
+    $user = pick($user_install, $user_base_tomcat)
+    $group = pick($group_install, $group_base_tomcat)
+
+    exec { "/bin/chown ${user}:${group} ${params['catalina_base']}/webapps/${name}":
+      refreshonly => true,
+    }
+
+    exec { "/bin/chown -R ${user}:${group} ${params['catalina_base']}/webapps/${array_war[0]}":
+      refreshonly => true,
     }
   }
 }

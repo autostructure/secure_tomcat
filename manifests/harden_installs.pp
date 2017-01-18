@@ -12,8 +12,6 @@ class secure_tomcat::harden_installs {
       ],
     }
 
-    # setm /files/Users/bryanbelanger/Downloads/apache-tomcat-7.0.73/conf/server.xml/Server/Service/Connector[*] #attribute/allowTrace false
-
     # 1.1 Remove extraneous files and directories
     file { "${catalina_home}/webapps/js-examples":
       ensure => absent,

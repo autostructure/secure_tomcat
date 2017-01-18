@@ -8,15 +8,16 @@ class secure_tomcat::harden_wars {
     # 10.20 use the logEffectiveWebXml and metadata-complete settings for deploying applications in production
 
     # Set the metadata-complete value in the web.xml in each of applications to true
-    augeas { "${name}_metadata-complete_true":
-      incl    => "${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/web.xml",
-      lens    => 'Xml.lns',
-      context => "/files/${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/web.xml/",
-      changes => [
-        'set web-app/#attribute/metadata-complete true',
-        'set web-app/#attribute/version 3.0',
-      ],
-    }
+    # TO-DO: Investigate and inspect
+    # augeas { "${name}_metadata-complete_true":
+    #   incl    => "${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/web.xml",
+    #   lens    => 'Xml.lns',
+    #   context => "/files/${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/web.xml/",
+    #   changes => [
+    #     'set web-app/#attribute/metadata-complete true',
+    #     'set web-app/#attribute/version 3.0',
+    #   ],
+    # }
 
     # Set the logEffectiveWebXml value in the context.xml in each of applications to true
     augeas { "${name}_logEffectiveWebXml_true":

@@ -1,2 +1,5 @@
+2017-01-17 Release 0.1.12
+- Chown the war file and deployed app to match tomcat user and group
+
 2017-01-17 Release 0.1.11
 - Force web app servlet to be version 3.0

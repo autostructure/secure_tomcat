@@ -2,6 +2,7 @@
 class secure_tomcat::harden_installs {
   $::secure_tomcat::installs.each |$catalina_home, $params| {
 
+    # 2.5 Disable client facing Stack Traces
     augeas { "${catalina_home}-error-page":
       incl    => "${catalina_home}/conf/web.xml",
       lens    => 'Xml.lns',

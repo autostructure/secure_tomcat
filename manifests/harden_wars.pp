@@ -5,6 +5,11 @@ class secure_tomcat::harden_wars {
   $::secure_tomcat::wars.each |$name, $params| {
     $array_war = split($name, '[.]')
 
+    #  Make sure catalina_base parameter has a value
+    unless $params['catalina_base'] {
+      fail('Each WAR entry requires a catalina_base parameter')
+    }
+
     # 10.20 use the logEffectiveWebXml and metadata-complete settings for deploying applications in production
 
     # Set the metadata-complete value in the web.xml in each of applications to true
@@ -72,13 +77,13 @@ class secure_tomcat::harden_wars {
     file_line { "${name}_fileHandler_directory":
       ensure => present,
       path   => "${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/classes/logging.properties",
-      line   => "${name}.org.apache.juli.FileHandler.directory=${params['catalina_base']}/logs",
+      line   => "${array_war[0]}.org.apache.juli.FileHandler.directory=${params['catalina_base']}/logs",
     }
 
     file_line { "${name}_fileHandler_prefix":
       ensure => present,
       path   => "${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/classes/logging.properties",
-      line   => "${name}.org.apache.juli.FileHandler.prefix=${name}",
+      line   => "${array_war[0]}.org.apache.juli.FileHandler.prefix=${array_war[0]}.",
     }
 
     # Find user for install or instance

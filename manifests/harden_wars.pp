@@ -25,6 +25,9 @@ class secure_tomcat::harden_wars {
     # }
 
     # Set the logEffectiveWebXml value in the context.xml in each of applications to true
+    # 10.14 Do not allow symbolic linking (Scored)
+    # 10.15 Do not run applications as privileged (Scored)
+    # 10.16 Do not allow cross context requests (Scored)
     augeas { "${name}_logEffectiveWebXml_true":
       incl    => "${params['catalina_base']}/webapps/${array_war[0]}/META-INF/context.xml",
       lens    => 'Xml.lns',
@@ -53,7 +56,9 @@ class secure_tomcat::harden_wars {
       replace => false,
     }
 
+    # 7.3 Ensure className is set correctly in context.xml
     # 7.4 Ensure directory in context.xml is a secure location
+    # 7.5 Ensure pattern in context.xml is correct
     augeas { "${name}_context_loggin":
       incl    => "${params['catalina_base']}/webapps/${array_war[0]}/META-INF/context.xml",
       lens    => 'Xml.lns',
@@ -68,11 +73,25 @@ class secure_tomcat::harden_wars {
       ],
     }
 
+    # Find user for install or instance
+    $user_install = getparam(Tomcat::Install[$params['catalina_base']], 'user')
+    $user_base_tomcat = $::tomcat::user
+
+    $group_install = getparam(Tomcat::Install[$params['catalina_base']], 'group')
+    $group_base_tomcat = $::tomcat::group
+
+    $user = pick($user_install, $user_base_tomcat)
+    $group = pick($group_install, $group_base_tomcat)
+
     # 7.6 Ensure directory in logging.properties is a secure location
-    #file {"${params['catalina_base']}/logs":
-    #  ensure => directory,
-    #  mode   => 'o-rwx',
-    #}
+    unless defined(File["${params['catalina_base']}/logs"]) {
+      file {"${params['catalina_base']}/logs":
+        ensure => directory,
+        mode   => 'o-rwx',
+        owner  => $user,
+        group  => $group,
+      }
+    }
 
     file_line { "${name}_fileHandler_directory":
       ensure => present,
@@ -85,16 +104,6 @@ class secure_tomcat::harden_wars {
       path   => "${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/classes/logging.properties",
       line   => "${array_war[0]}.org.apache.juli.FileHandler.prefix=${array_war[0]}.",
     }
-
-    # Find user for install or instance
-    $user_install = getparam(Tomcat::Install[$params['catalina_base']], 'user')
-    $user_base_tomcat = $::tomcat::user
-
-    $group_install = getparam(Tomcat::Install[$params['catalina_base']], 'group')
-    $group_base_tomcat = $::tomcat::group
-
-    $user = pick($user_install, $user_base_tomcat)
-    $group = pick($group_install, $group_base_tomcat)
 
     exec { "/bin/chown ${user}:${group} ${params['catalina_base']}/webapps/${name}":
       refreshonly => true,

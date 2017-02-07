@@ -210,10 +210,15 @@ class secure_tomcat::harden_installs {
     }
 
     # 10.6 Enable strict servlet Compliance
+    $strict_servlet_compliance = '-Dorg.apache.catalina.STRICT_SERVLET_COMPLIANCE=true'
+
+    # 10.7 Turn off session facade recycling
+    $recycle_facades = '-Dorg.apache.catalina.connector.RECYCLE_FACADES=true'
+
     file_line { "${catalina_home}-strict_servlet_compliance":
       ensure => present,
       path   => "${catalina_home}/bin/catalina.sh",
-      line   => 'JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.STRICT_SERVLET_COMPLIANCE=true"',
+      line   => "JAVA_OPTS=\"\$JAVA_OPTS ${strict_servlet_compliance} ${recycle_facades}\"",
       after  => '^# ----- Execute.+',
     }
   }

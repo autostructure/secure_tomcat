@@ -14,6 +14,7 @@ class secure_tomcat::configure_wars {
       content => '<Context/>',
     }
 
+    # 7.1 Application specific logging
     file {"${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/classes/logging.properties":
       ensure => file,
     }

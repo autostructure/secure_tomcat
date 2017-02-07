@@ -1,4 +1,4 @@
-# Runs any tomcat install
+# Runs any final tasks that must be complete to harden
 class secure_tomcat::finalize_harden {
   $::secure_tomcat::installs.each |$catalina_home, $params| {
     # 2.6 Turn off TRACE

@@ -1,3 +1,6 @@
+2017-03-24 Release 1.0.0
+- logging.properties doesn't include '.war' string in prefix
+
 2017-01-27 Release 0.1.14
 - logging.properties doesn't include '.war' string in prefix
 

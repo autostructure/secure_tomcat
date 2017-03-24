@@ -50,7 +50,7 @@ class secure_tomcat::harden_installs {
     }
 
     # Unless the user wants the manager application these should also be removed
-    unless $::secure_tomcat::use_manager_application {
+    if $::secure_tomcat::use_manager_application {
       file { "${catalina_home}/server/webapps/host-manager":
         ensure => absent,
         force  => true,

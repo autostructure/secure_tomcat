@@ -1,6 +1,6 @@
 {
   "name": "autostructure-secure_tomcat",
-  "version": "0.1.18",
+  "version": "1.0.0",
   "author": "Bryan Belanger",
   "summary": "Configures a tomcat instance that meets CSI hardening standards.",
   "license": "Apache-2.0",

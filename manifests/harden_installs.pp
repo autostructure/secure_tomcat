@@ -50,7 +50,7 @@ class secure_tomcat::harden_installs {
     }
 
     # Unless the user wants the manager application these should also be removed
-    if $::secure_tomcat::use_manager_application {
+    unless $::secure_tomcat::use_manager_application {
       file { "${catalina_home}/server/webapps/host-manager":
         ensure => absent,
         force  => true,
@@ -60,6 +60,15 @@ class secure_tomcat::harden_installs {
         ensure => absent,
         force  => true,
       }
+        file { "${catalina_home}/webapps/host-manager":
+          ensure => absent,
+          force  => true,
+        }
+
+        file { "${catalina_home}/webapps/manager":
+          ensure => absent,
+          force  => true,
+        }
 
       file { "${catalina_home}/conf/Catalina/localhost/host-manager.xml":
         ensure => absent,
@@ -132,7 +141,7 @@ class secure_tomcat::harden_installs {
     # 4.9 Restrict access to Tomcat catalina.properties
     file { "${catalina_home}/conf/catalina.properties":
       ensure => file,
-      mode   => '0770',
+      mode   => 'g-w,o-rwx',
       owner  => $params['user'],
       group  => $params['group'],
     }

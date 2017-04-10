@@ -30,6 +30,212 @@ describe 'secure_tomcat' do
             }
           }
 
+          it {
+            is_expected.to contain_file('/opt/tomcat/bin').with(
+              'ensure'  => 'directory',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'g-w,o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/conf/catalina.policy').with(
+              'ensure'  => 'file',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => '0770'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/conf/catalina.properties').with(
+              'ensure'  => 'file',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'g-w,o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/conf/context.xml').with(
+              'ensure'  => 'file',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'g-w,o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/conf/logging.properties').with(
+              'ensure'  => 'file',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'g-w,o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/conf/server.xml').with(
+              'ensure'  => 'file',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'g-w,o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/conf/tomcat-users.xml').with(
+              'ensure'  => 'file',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'g-w,o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/conf/web.xml').with(
+              'ensure'  => 'file',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'g-w,o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/conf').with(
+              'ensure'  => 'directory',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'g-w,o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/logs').with(
+              'ensure'  => 'directory',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/temp').with(
+              'ensure'  => 'directory',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'o-rwx'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/js-examples').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/servlet-example').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/tomcat-docs').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/webdav').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/balancer').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/ROOT/admin').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/examples').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/host-manager').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/server/webapps/manager').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/server/webapps/host-manager').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/manager').with(
+              'ensure'  => 'absent'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/hello/META-INF/context.xml').with(
+              'ensure'  => 'file',
+              'replace' => 'false',
+              'content' => '<Context/>'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/hello/META-INF').with(
+              'ensure'  => 'directory'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/hello/WEB-INF/classes/logging.properties').with(
+              'ensure'  => 'file'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/hello/WEB-INF/web.xml').with(
+              'ensure'  => 'file'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps/hello').with(
+              'ensure'  => 'directory'
+            )
+          }
+
+          it {
+            is_expected.to contain_file('/opt/tomcat/webapps').with(
+              'ensure'  => 'directory',
+              'owner'   => 'tomcat_admin',
+              'group'   => 'tomcat',
+              'mode'    => 'g-w,o-rwx'
+            )
+          }
+
           it { is_expected.to compile.with_all_deps }
         end
 

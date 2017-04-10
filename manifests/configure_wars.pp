@@ -8,6 +8,10 @@ class secure_tomcat::configure_wars {
       ensure => file,
     }
 
+    file {"${params['catalina_base']}/webapps/${array_war[0]}/META-INF":
+      ensure  => directory,
+    }
+
     file {"${params['catalina_base']}/webapps/${array_war[0]}/META-INF/context.xml":
       ensure  => file,
       replace => false,

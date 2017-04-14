@@ -97,13 +97,13 @@ class secure_tomcat (
   String $minimum_umask = '0007'
 
   ) {
-  class {'::secure_tomcat::run_installs': } ~>
-  class {'::secure_tomcat::harden_installs': } ->
-  class {'::secure_tomcat::run_instances': } ~>
-  class {'::secure_tomcat::harden_instances': } ->
-  class {'::secure_tomcat::run_wars': } ->
-  class {'::secure_tomcat::deploy_wars': } ->
-  class {'::secure_tomcat::configure_wars': } ~>
-  class {'::secure_tomcat::harden_wars': } ->
-  Class['::secure_tomcat']
+  class {'::secure_tomcat::run_installs': }
+  ~> class {'::secure_tomcat::harden_installs': }
+  -> class {'::secure_tomcat::run_instances': }
+  ~> class {'::secure_tomcat::harden_instances': }
+  -> class {'::secure_tomcat::run_wars': }
+  -> class {'::secure_tomcat::deploy_wars': }
+  -> class {'::secure_tomcat::configure_wars': }
+  ~> class {'::secure_tomcat::harden_wars': }
+  -> Class['::secure_tomcat']
 }

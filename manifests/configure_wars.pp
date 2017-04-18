@@ -4,6 +4,10 @@ class secure_tomcat::configure_wars {
     $array_war = split($name, '[.]')
 
     # Ensure necessary files in place
+    file {"${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF":
+      ensure => directory,
+    }
+
     file {"${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/web.xml":
       ensure => file,
     }

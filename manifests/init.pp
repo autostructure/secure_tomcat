@@ -98,6 +98,12 @@ class secure_tomcat (
 
   ) {
   class {'::secure_tomcat::run_installs': }
+  -> class {'::secure_tomcat::run_configs1': }
+  -> class {'::secure_tomcat::run_configs2': }
+  -> class {'::secure_tomcat::run_configs3': }
+  -> class {'::secure_tomcat::run_configs4': }
+  -> class {'::secure_tomcat::run_configs5': }
+  -> class {'::secure_tomcat::run_configs6': }
   ~> class {'::secure_tomcat::harden_installs': }
   -> class {'::secure_tomcat::run_instances': }
   ~> class {'::secure_tomcat::harden_instances': }
@@ -106,4 +112,13 @@ class secure_tomcat (
   -> class {'::secure_tomcat::configure_wars': }
   ~> class {'::secure_tomcat::harden_wars': }
   -> Class['::secure_tomcat']
+
+
+  Class['::secure_tomcat::run_installs'] ~> Class['::secure_tomcat::harden_installs']
+  Class['::secure_tomcat::run_configs1'] ~> Class['::secure_tomcat::harden_installs']
+  Class['::secure_tomcat::run_configs2'] ~> Class['::secure_tomcat::harden_installs']
+  Class['::secure_tomcat::run_configs3'] ~> Class['::secure_tomcat::harden_installs']
+  Class['::secure_tomcat::run_configs4'] ~> Class['::secure_tomcat::harden_installs']
+  Class['::secure_tomcat::run_configs5'] ~> Class['::secure_tomcat::harden_installs']
+  Class['::secure_tomcat::run_configs6'] ~> Class['::secure_tomcat::harden_installs']
 }

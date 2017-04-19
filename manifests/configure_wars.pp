@@ -11,7 +11,7 @@ class secure_tomcat::configure_wars {
     file {"${params['catalina_base']}/webapps/${array_war[0]}/WEB-INF/web.xml":
       ensure  => file,
       replace => false,
-      content => '<web-app/>',
+      content => '<?xml version="1.0" encoding="UTF-8"?><web-app/>',
     }
 
     file {"${params['catalina_base']}/webapps/${array_war[0]}/META-INF":
